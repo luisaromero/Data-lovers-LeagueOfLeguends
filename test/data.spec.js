@@ -4,7 +4,7 @@ require('../src/data');
 require('./data.spec.js');
 
 const data = 
-  {
+  [{
   "Zyra": {
     "version": "6.24.1",
     "id": "Zyra",
@@ -22,7 +22,7 @@ const data =
     "id": "Nasus",
     "key": "75",
     "name": "Nasus",
-    "tags": ["Fighter", "Tank"]}}
+    "tags": ["Fighter", "Tank"]}}];
 
 describe('filterByTag', () => {
 
@@ -31,17 +31,22 @@ describe('filterByTag', () => {
   });
 
 
-  it('debería retornar Zyra para filtrar por tipo "Mage"', () => {
-    assert.deepEqual(window.filterByTag(data, "Support"),{
-    "Zyra": {
-      "version": "6.24.1",
-      "id": "Zyra",
-      "key": "143",
-      "name": "Zyra",
-      "tags": ["Mage", "Support"]
-  }}
-      );
-    })})
+  it('debería retornar Garen , Nasus para filtrar por tipo "Tank"', () => {
+    assert.deepEqual(window.filterByTag(data,"Tank"), [{
+      "Garen": {
+        "version": "6.24.1",
+        "id": "Garen",
+        "key": "86",
+        "name": "Garen",
+        "tags": ["Fighter", "Tank"]},
+        "Nasus": {
+          "version": "6.24.1",
+          "id": "Nasus",
+          "key": "75",
+          "name": "Nasus",
+          "tags": ["Fighter", "Tank"]}}]
+          );
+        })})
 
     describe('orderByName', () => {
 
@@ -51,7 +56,7 @@ describe('filterByTag', () => {
     
     
       it('debería retornar campeones de la z a la a ', () => {
-        assert.deepEqual(window.orderByName(data, "za"),{
+        assert.deepEqual(window.orderByName(data, "za"),[{
         "Zyra": {
           "version": "6.24.1",
           "id": "Zyra",
@@ -69,7 +74,31 @@ describe('filterByTag', () => {
               "id": "Garen",
               "key": "86",
               "name": "Garen",
-              "tags": ["Fighter", "Tank"]},
-      }
+              "tags": ["Fighter", "Tank"]}
+      }]
           );
         })})
+        it('debería retornar campeones de la z a la a ', () => {
+          assert.deepEqual(window.orderByName(data, "az"),[{
+            "Garen": {
+              "version": "6.24.1",
+              "id": "Garen",
+              "key": "86",
+              "name": "Garen",
+              "tags": ["Fighter", "Tank"]},
+              "Nasus": {
+                "version": "6.24.1",
+                "id": "Nasus",
+                "key": "75",
+                "name": "Nasus",
+                "tags": ["Fighter", "Tank"]},
+                "Zyra": {
+                  "version": "6.24.1",
+                  "id": "Zyra",
+                  "key": "143",
+                  "name": "Zyra",
+                  "tags": ["Mage", "Support"]}
+                }]
+                );
+              })
+            
