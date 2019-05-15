@@ -49,4 +49,10 @@ data.forEach(element => {
     showData(lolMostrar)
   });
 
+  btnFilter3.addEventListener('click',() => {
+    const tipo1 = btnCounter.value;
+    let lolMostrar = window.counter(data,tipo1)
+    showData(lolMostrar)
+  });
+
 

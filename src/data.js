@@ -25,6 +25,13 @@ const orderByName= (data,sortBy,sortOrder) => {
   };
   window.filterByTag = filterByTag;
   
+
+  const counter = (data,tipo) =>{
+  return data.filter(element => 
+    element.tags.includes(tipo)
+  );
+  }
+  window.counter = counter
   // const counter = (data, condition, counterBy) => {
   //   let result = data.reduce((counterResult, data) => {
   //     if (data[counterBy].includes(condition)) {
