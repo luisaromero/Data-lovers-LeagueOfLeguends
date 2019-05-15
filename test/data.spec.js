@@ -1,28 +1,19 @@
+
 global.window = global;
 global.assert = require('chai').assert;
 require('../src/data');
 require('./data.spec.js');
 
-const data = 
+const data =
   [{
-  "Zyra": {
-    "version": "6.24.1",
-    "id": "Zyra",
-    "key": "143",
-    "name": "Zyra",
-    "tags": ["Mage", "Support"],
-}, "Garen": {
-  "version": "6.24.1",
-  "id": "Garen",
-  "key": "86",
+  "name": "Zyra",
+    "tags": "Mage",
+},{
   "name": "Garen",
-  "tags": ["Fighter", "Tank"]},
-  "Nasus": {
-    "version": "6.24.1",
-    "id": "Nasus",
-    "key": "75",
+  "tags": "Fighter"},
+  {
     "name": "Nasus",
-    "tags": ["Fighter", "Tank"]}}];
+    "tags": "Tank"}];
 
 describe('filterByTag', () => {
 
@@ -31,74 +22,47 @@ describe('filterByTag', () => {
   });
 
 
-  it('debería retornar Garen , Nasus para filtrar por tipo "Tank"', () => {
-    assert.deepEqual(window.filterByTag(data,"Tank"), [{
-      "Garen": {
-        "version": "6.24.1",
-        "id": "Garen",
-        "key": "86",
-        "name": "Garen",
-        "tags": ["Fighter", "Tank"]},
-        "Nasus": {
-          "version": "6.24.1",
-          "id": "Nasus",
-          "key": "75",
-          "name": "Nasus",
-          "tags": ["Fighter", "Tank"]}}]
-          );
-        })})
+  it('debería retornar Zyra para filtrar por tipo "Mage"', () => {
+    assert.deepEqual(window.filterByTag(data,"Mage"), [{
+
+        "name": "Zyra",
+        "tags": "Mage"
+      }
+    ]
+        );
+      })})
 
     describe('orderByName', () => {
 
       it('debería ser una función', () => {
         assert.equal(typeof window.orderByName, 'function');
       });
-    
-    
+
+
       it('debería retornar campeones de la z a la a ', () => {
-        assert.deepEqual(window.orderByName(data, "za"),[{
-        "Zyra": {
-          "version": "6.24.1",
-          "id": "Zyra",
-          "key": "143",
-          "name": "Zyra",
-          "tags": ["Mage", "Support"]},
-          "Nasus": {
-            "version": "6.24.1",
-            "id": "Nasus",
-            "key": "75",
-            "name": "Nasus",
-            "tags": ["Fighter", "Tank"]},
-            "Garen": {
-              "version": "6.24.1",
-              "id": "Garen",
-              "key": "86",
-              "name": "Garen",
-              "tags": ["Fighter", "Tank"]}
-      }]
+        assert.deepEqual(window.orderByName(data,"name" ,"za"),
+        [{ "name": "Zyra",
+           "tags": "Mage"},
+           {"name":"Nasus",
+            "tags":"Tank"},
+            {"name":"Garen",
+              "tags":"Fighter"}]
           );
-        })})
-        it('debería retornar campeones de la z a la a ', () => {
-          assert.deepEqual(window.orderByName(data, "az"),[{
-            "Garen": {
-              "version": "6.24.1",
-              "id": "Garen",
-              "key": "86",
-              "name": "Garen",
-              "tags": ["Fighter", "Tank"]},
-              "Nasus": {
-                "version": "6.24.1",
-                "id": "Nasus",
-                "key": "75",
-                "name": "Nasus",
-                "tags": ["Fighter", "Tank"]},
-                "Zyra": {
-                  "version": "6.24.1",
-                  "id": "Zyra",
-                  "key": "143",
-                  "name": "Zyra",
-                  "tags": ["Mage", "Support"]}
-                }]
-                );
-              })
-            
+        });
+      });
+      describe('orderByName', () => {
+
+        it('debería ser una función', () => {
+          assert.equal(typeof window.orderByName, 'function');
+        });
+  
+     it('debería retornar campeones de la z a la a ', () => {
+          assert.deepEqual(window.orderByName(data,"name" ,"az"),
+          [{name: "Garen", tags: "Fighter"},
+          {name: "Nasus", tags: "Tank"},
+           {name: "Zyra", tags: "Mage"}]
+            );
+          });
+        });
+
+   
