@@ -23,8 +23,15 @@ button{
     margin-right: 20px;
     width:170px;
     margin-top:50px;
+    height:280px;
    
 }
+@media (min-width: 768px) {
+    .col-sm-8ths {
+      width: 20%;
+      float: left;
+      }
+    }
 
 .card-img-wrapper {
     padding: 1em;
@@ -39,5 +46,5 @@ button{
     margin-left:310px; 
     margin-top:0px;
     color:white;
-    
 }
+  
