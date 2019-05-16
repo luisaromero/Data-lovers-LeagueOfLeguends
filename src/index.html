@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre" rel="stylesheet">
 </head>
   <body>
-    <div id="root"></div>
-   
+    
    <select class="form-control form-control-lg" id="ordenar">
     <option value ="za" >Z-A</option>
     <option value ="az" >A-Z</option>
@@ -28,9 +27,18 @@
     </select>
   <button id="filter2" type="button" class="btn btn-outline-success">Buscar</button> 
  
+  <select class="form-control form-control-lg" id="countertags">
+    <option value="Fighter">Luchador</option>
+    <option value ="Mage">Mago</option>
+    <option value="Tank">Tanque</option>
+    <option value="Assassin">Asesino</option>
+    <option value="Marksman">Tirador</option>
+    <option value="Support">Soporte</option>
+    </select>
+  <button id="filter3" type="button" class="btn btn-outline-success">Ver estadisticas</button> 
+  <div id="root" ></div>
 
-
-  <section id="lolcito" ></section>
+  <section id="lolcito" class="row"></section>
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

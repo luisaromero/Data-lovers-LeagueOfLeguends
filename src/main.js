@@ -9,6 +9,12 @@ const btnFilter2 = document.getElementById('filter2')
 
 const btnOrderTag = document.getElementById('ordenartipos')
 
+const btnCounter = document.getElementById('countertags')
+
+const btnFilter3 = document.getElementById('filter3')
+
+const containerResult = document.getElementById('root');
+
 
 
 
@@ -32,11 +38,6 @@ data.forEach(element => {
 }
 
 
-
-// window.addEventListener('load', () => {
-//   showData(data);
-
-// })
  btnFilter.addEventListener('click',() => {
      const orden = btnOrder.value;
      let lolMostrar = window.orderByName(data,"name",orden)
@@ -51,8 +52,8 @@ data.forEach(element => {
 
   btnFilter3.addEventListener('click',() => {
     const tipo1 = btnCounter.value;
-    let lolMostrar = window.counter(data,tipo1)
-    showData(lolMostrar)
+    containerResult.innerHTML = window.counter(data,tipo1);
+    
   });
 
 

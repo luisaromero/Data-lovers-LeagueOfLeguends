@@ -65,4 +65,15 @@ describe('filterByTag', () => {
           });
         });
 
+
+        describe('counter', () => {
+
+          it('debería ser una función', () => {
+            assert.equal(typeof window.counter, 'function');
+          });
+          it('debería retornar el porcentaje para cada tipo de campeon', () => {
+            assert.equal(window.counter(data,"Mage"), "1")
+          });
+        });
+
    
