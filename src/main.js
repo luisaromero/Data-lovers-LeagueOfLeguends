@@ -23,7 +23,7 @@ let html=""
 data.forEach(element => {
     html += `
     
-      <div class="card h-100" >
+      <div class="card " >
         <div class="card-img-wrapper">
         <img class="card-img mx-auto d-block" src="${element.img}" alt="${element.name}">
         </div>
